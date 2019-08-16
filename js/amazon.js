@@ -6,9 +6,9 @@
 
 (function(){ // 名前空間汚さないバリアー
 
-// ある DOM 要素があるクラス名の子供を持っているか判定（持ってたら最初のを返す）
-const getFirstChildWithClassName = function(element, className) {
-	const children = document.getElementsByClassName(className);
+// ある DOM 要素がある子供を持っているか判定（持ってたら最初のを返す）
+const getFirstChildWithQuery = function(element, query) {
+	const children = document.querySelectorAll(query);
 	for (const child of children) {
 		if (element.contains(child) && element !== child) return child;
 	}
@@ -18,26 +18,23 @@ const getFirstChildWithClassName = function(element, className) {
 const removeStars = function() {
 	const arows = document.getElementsByClassName('a-row');
 	for(const arow of arows) {
-		if (getFirstChildWithClassName(arow, 'a-icon-star')) {
-			if (! getFirstChildWithClassName(arow, 'a-row')) arow.remove();
-		}
-		if (getFirstChildWithClassName(arow, 'a-icon-star-small')) {
-			if (! getFirstChildWithClassName(arow, 'a-row')) arow.remove();
+		if (getFirstChildWithQuery(arow, '.a-icon-star, .a-icon-star-small')) {
+			if (! getFirstChildWithQuery(arow, '.a-row')) arow.remove();
 		}
 	}
 
-	const gabageCollection = [] // なぜか一旦 Array に集めて消さないと同時に全部消えてくれない。
 	const aiconrows = document.getElementsByClassName('a-icon-row');
 	for(const item of aiconrows) {
-		if (getFirstChildWithClassName(item, 'a-icon-star')) gabageCollection.push(item);
+		if (getFirstChildWithQuery(item, '.a-icon-star')) { 
+			item.innerHTML = '<div style="font-size: 9px; color: #888; padding: 10px 0px;">レビュー非表示</div>';
+		}
 	}
-	for(const item of gabageCollection) item.innerHTML = '<div style="font-size: 9px; color: #888; padding: 10px 0px;">レビュー非表示</div>';
 }
 
 const removeIndeesRanking = function() {
 	const arows = document.getElementsByClassName('a-row a-spacing-top-medium dbs-widget-size');
 	for (const arow of arows) {
-		const h2 = getFirstChildWithClassName(arow, 'a-size-large');
+		const h2 = getFirstChildWithQuery(arow, '.a-size-large');
 		if (h2.textContent.search('インディーズマンガのランキング') >= 0) arow.remove();
 	}
 }
