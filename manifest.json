@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+	"name": "静かな密林",
+	"version": "1.0",
+	"description": "Amazon レビューをできるだけ非表示にする",
+
+	"browser_action": {
+		"default_popup": "html/config.html"
+	},
+
+	"content_scripts": [{
+		"matches" : ["https://*.amazon.co.jp/*"],
+		"css": ["css/amazon.css"],
+		"js": ["js/amazon.js"]
+	}],
+
+	"background": {
+		"scripts": ["js/background.js"],
+		"persistent": false
+	},
+	"homepage_url" : "https://yubais.net/"
+}

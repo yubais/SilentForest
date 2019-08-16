@@ -1,0 +1,47 @@
+/* メイン */
+#averageCustomerReviews {
+    visibility: hidden;
+    white-space: nowrap;
+}
+#averageCustomerReviews:before {
+    color: #888;
+	visibility: visible;
+	content: "拡張機能によりレビューが非表示に設定されています。";
+}
+
+/* 下のレビュー欄 */
+#reviewsMedley {
+	display: none;
+}
+
+.a-icon.a-icon-star,
+.a-icon.a-icon-star-small {
+   	visibility: hidden;
+}
+
+
+/* なか見検索 */
+span.review {
+    display: none;
+}
+span.crAvgStars {
+    display: none;
+}
+
+/* プライム・ビデオ用 */
+.av-icon.av-icon--amazon_rating {
+    display: none;
+}
+.av-icon.av-icon--amazon_rating + span:before {
+    color: #888;
+    content: "レビュー非表示 ";
+}
+
+/* スポンサープロダクト */
+#sponsoredProducts_feature_div {
+    display: none;
+}
+#sponsoredProducts_feature_div + div:before {
+    color: #888888;
+    content: "スポンサープロダクトは表示されません。";
+}
