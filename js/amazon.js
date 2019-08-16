@@ -21,6 +21,9 @@ const removeStars = function() {
 		if (getFirstChildWithClassName(arow, 'a-icon-star')) {
 			if (! getFirstChildWithClassName(arow, 'a-row')) arow.remove();
 		}
+		if (getFirstChildWithClassName(arow, 'a-icon-star-small')) {
+			if (! getFirstChildWithClassName(arow, 'a-row')) arow.remove();
+		}
 	}
 
 	const gabageCollection = [] // なぜか一旦 Array に集めて消さないと同時に全部消えてくれない。
