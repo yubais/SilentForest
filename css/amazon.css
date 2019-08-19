@@ -9,6 +9,12 @@
 	content: "拡張機能によりレビューが非表示に設定されています。";
 }
 
+/* 「登録情報」内の「おすすめ度」 */
+#detail_bullets_id span[class^="dpProductDetail"],
+#productDetailsTable span[class^="dpProductDetail"]{
+	visibility: hidden;
+}
+
 /* 下のレビュー欄 */
 #reviewsMedley {
 	display: none;
