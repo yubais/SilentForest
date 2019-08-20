@@ -15,6 +15,11 @@
 	visibility: hidden;
 }
 
+/* 購入ボタンの下に出てくる広告 */
+#amsDetailRightPbook {
+	display: none;
+}
+
 /* 下のレビュー欄 */
 #reviewsMedley {
 	display: none;
